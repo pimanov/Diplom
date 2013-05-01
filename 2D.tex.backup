@@ -1,0 +1,22 @@
+\subsection{Математическая постановка задачи}
+
+Ставиться двумерная задача рачета поля скорости жидкости $ \vec v(t) $ в каверне $ \Omega $ 
+с подвижной крышкой. Каверна имеет форму квадрата $ \Omega = (0,1) \times (0,1) $. 
+Жидкости передается движение крышки $ \Gamma_1 = (0,1) \times {1} $. 
+Крышка движется равномерно со скорость $ \vec{v}_0 = (1,0) $. 
+Считается, что жидкость вязкая, ньютоновская, несжимаемая, изотермическая, и описывается системой
+уравнений Навье-Стокса.
+\begin{gather}
+  \nabla \cdot \vec v = 0 \\
+  \vec \omega = \nabla \times \vec v \\
+  \frac{\partial \vec v}{\partial t} = \vec v \times \vec \omega - \nabla p - 
+  \nu ( \nabla \times \vec \omega ), \text{при } \vec x \in \Omega \\
+  \vec v = (1,0), \text{при } \vec x \in \Gamma_1 \\
+  \vec v = (0,0), \text{при } \vec x \in \Gamma_2 \\
+  \vec v (0) = \vec v _0
+\end{gather}
+
+Здесь $ \vec \omega $ - завихренность, p - полное кинематическое давление,
+$ \nu = 1 / \Re $ - вязкость, $ \Gamma_2 = \partial \Omega \setminus \Gamma_1 $ - 
+боковые стенки и дно каверны, $ \partial \Omega = \Gamma = \Gamma_1 \cup \Gamma_2 $ - 
+граница области, $\vec v _0$ - начальное распредиление скорости. 

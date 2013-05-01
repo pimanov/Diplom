@@ -1,9 +1,15 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
+\usepackage{amsmath}
+
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\mdiv}{div}
+\DeclareMathOperator{\RE}{Re}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
 
 %opening
-\title{}
+\title{Численное исследование 3-х мерных не изотермических течений несжимаемой жидкости в прямоугольной каверне с подвижной крышкой}
 \author{Владимир Олегович Пиманов}
 
 \begin{document}
@@ -15,5 +21,8 @@
 \end{abstract}
 
 \section{}
+  \input{dimensionless}
+  \input{2D}
+  \input{lin}
 
 \end{document}
