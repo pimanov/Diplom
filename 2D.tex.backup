@@ -20,3 +20,31 @@
 $ \nu = 1 / \Re $ - вязкость, $ \Gamma_2 = \partial \Omega \setminus \Gamma_1 $ - 
 боковые стенки и дно каверны, $ \partial \Omega = \Gamma = \Gamma_1 \cup \Gamma_2 $ - 
 граница области, $\vec v _0$ - начальное распредиление скорости. 
+
+\begin{center}
+\begin{picture}(150,110)(-75,-55)
+\thinlines
+\put(-80,-40){\vector(1,0){160}}
+\put(-40,-80){\vector(0,1){160}}
+%\put(-49,-51){\textsl{0}}
+%\put(37,-51){\textsl{1}}
+%\put(-49,30){\textsl{1}}
+\put(80,-51){\textsl{x}}
+\put(-49,80){\textsl{y}}
+\thicklines
+\put(-40,-40){\line(1,0){80}}
+\put(40,-40){\line(0,1){80}}
+\put(60,40){\line(-1,0){120}}
+\put(60,60){\line(-1,0){120}}
+\put(-40,40){\line(0,-1){80}}
+\put(-60,49.7){\circle{19.5}}
+\put( 60,49.7){\circle{19.5}}
+\put(-10,33){\vector(1,0){30}}
+\put(10,67){\vector(-1,0){30}}
+\thinlines
+\multiput(-40,-35)(0,5){16}{\line(-1,-1){10}}
+\multiput(-40,-40)(5,0){18}{\line(-1,-1){10}}
+\multiput( 40,-50)(0,5){17}{\line(1,1){10}}
+\multiput( -50,40)(5,0){21}{\line(0,1){5}}
+\end{picture}
+\end{center}
