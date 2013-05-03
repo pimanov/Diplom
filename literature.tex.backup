@@ -1,9 +1,0 @@
-\begin{thebibliography}{99}
-\bibitem{method}
-\textit{N.\,Nikitin}, Finite-difference method for incompressible Navier–Stokes equations in 
-arbitrary orthogonal curvilinear coordinates // J. Comput. Phys. 217 (2006) 759–781.
-
-%\bibitem{method} N.\,Nikitin, Finit-differece mthod for incompressible Navier-Stokes 
-equations in arbitrary orthogonal curvilinear coordinates, Journal of computational 
-Physics 217 (2006)
-\end{thebibliography}
