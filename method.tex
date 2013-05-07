@@ -55,7 +55,7 @@
      \put(-15,35){\text{$\omega_x$}}
     \end{picture}
   \end{center}
-  \caption{Смещенные сетки. Изображена одная ячейка сетки. Давление p определяется в центре ячейки.}
+  \caption{Расположение узлов, к которым относятся компоненты векторов скорости и завихренности, на смещенных сетках. Изображена одная ячейка сетки. Давление p определяется в центре ячейки.}
   \label{picStag}
 \end{figure}
 
@@ -136,9 +136,21 @@ $$
   \Omega_y = \{ \omega^y_{ijk} = \omega_y(x_i,y_j,z_k), \text{ при } x_i \in X, y_i \in Y_f, z_i \in Z \} \\
   \Omega_z = \{ \omega^z_{ijk} = \omega_z(x_i,y_j,z_k), \text{ при } x_i \in X, y_i \in Y, z_i \in Z_f \}
 \end{gather*}
-Расположение неизвестных изображено на Рис \ref{picStag}.
+Иллюстрация на Рис \ref{picStag}.
 
 Этого достаточно для того, что бы записать разностную аппроксимацию исходной систм уравнений
 \begin{gather}
-  \frac{\partial u_x}{\partial t} = 
+  \delta_x v_x + \delta_y v_y + \delta_z v_z = 0 
+  \\
+  \omega_x = \delta_y v_z - \delta_z v_y 
+  \\
+  \omega_y = \delta_z v_x - \delta_x v_z 
+  \\
+  \omega_z = \delta_x v_y - \delta_y v_x 
+  \\
+  \frac{\partial v_x}{\partial t} = \frac{1}{y'z'}\left(\overline{\overline{y'v_y}^x z' \omega_z}^y - \overline{\overline{z'v_z}^x y' \omega_y}^z \right) - \delta_x p - \nu (\delta_y \omega_z - \delta_z \omega_y)
+  \\
+  \frac{\partial v_y}{\partial t} = \frac{1}{x'z'}\left(\overline{\overline{z'v_z}^y x' \omega_x}^z - \overline{\overline{x'v_x}^y z' \omega_z}^x \right) - \delta_y p - \nu (\delta_z \omega_x - \delta_x \omega_z) 
+  \\
+  \frac{\partial v_z}{\partial t} = \frac{1}{x'y'}\left(\overline{\overline{x'v_x}^z y' \omega_y}^x - \overline{\overline{y'v_y}^z x' \omega_x}^y \right) - \delta_z p - \nu (\delta_x \omega_y - \delta_y \omega_x)
 \end{gather}
