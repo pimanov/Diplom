@@ -1,9 +1,0 @@
-set nokey
-set xrange[0:20]
-set yrange[0:5000]
-set xlabel "alpha"
-set ylabel "Re_crit"
-set term "postscript" eps
-set output "Re.eps"
-set style line 1 lt 1 pt 7
-plot "ReCritAlp.dat" w lp linestyle 1
