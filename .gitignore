@@ -34,3 +34,5 @@
 *.pdf
 *.backup
 *.kate-swp
+*.gz
+*.gz(busy)
