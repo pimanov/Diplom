@@ -138,7 +138,7 @@ $$
 \end{gather*}
 Иллюстрация на Рис \ref{picStag}.
 
-Этого достаточно для того, что бы записать разностную аппроксимацию исходной систм уравнений
+Этого достаточно для того, что бы записать разностную аппроксимацию исходной системы уравнений. Для прямойгольной системы координат, как в нашем случае, разностная аппроксимация системы несколько проще, чем для произвольной ортогональной системы координат, и записывается так:
 \begin{gather}
   \delta_x v_x + \delta_y v_y + \delta_z v_z = 0 
   \\
@@ -148,10 +148,26 @@ $$
   \\
   \omega_z = \delta_x v_y - \delta_y v_x 
   \\
-  \frac{\partial v_x}{\partial t} = \frac{1}{y'z'}\left(\overline{\overline{y'v_y}^x z' \omega_z}^y - \overline{\overline{z'v_z}^x y' \omega_y}^z \right) - \delta_x p - \nu (\delta_y \omega_z - \delta_z \omega_y)
+  \frac{\partial v_x}{\partial t} = \frac{1}{y'}\overline{\overline{y'v_y}^x \omega_z}^y - \frac{1}{z'}\overline{\overline{z'v_z}^x \omega_y}^z - \delta_x p - \nu (\delta_y \omega_z - \delta_z \omega_y)
   \\
-  \frac{\partial v_y}{\partial t} = \frac{1}{x'z'}\left(\overline{\overline{z'v_z}^y x' \omega_x}^z - \overline{\overline{x'v_x}^y z' \omega_z}^x \right) - \delta_y p - \nu (\delta_z \omega_x - \delta_x \omega_z) 
+  \frac{\partial v_y}{\partial t} = \frac{1}{z'}\overline{\overline{z'v_z}^y \omega_x}^z - \frac{1}{x'}\overline{\overline{x'v_x}^y \omega_z}^x - \delta_y p - \nu (\delta_z \omega_x - \delta_x \omega_z) 
   \\
-  \frac{\partial v_z}{\partial t} = \frac{1}{x'y'}\left(\overline{\overline{x'v_x}^z y' \omega_y}^x - \overline{\overline{y'v_y}^z x' \omega_x}^y \right) - \delta_z p - \nu (\delta_x \omega_y - \delta_y \omega_x)
+  \frac{\partial v_z}{\partial t} = \frac{1}{x'}\overline{\overline{x'v_x}^z \omega_y}^x - \frac{1}{y'}\overline{\overline{y'v_y}^z \omega_x}^y - \delta_z p - \nu (\delta_x \omega_y - \delta_y \omega_x)
 \end{gather}
+Зная значение скоростей в каждой точке, на каждом шаге, используя приведенные формулы, можно расчитать производную скорости по времени. Как сделать шаг по времени описанно в следующей секции. 
+
+\subsection*{Интегрирование по времени}
+
+Решаемая задача~--- задача Каши, для интегрирования по времени применим метод Рунге-Кутта третьего порядка точности.
+\begin{gather}
+\begin{split}
+H_n &= H(t_n, w_n) \\
+DGp_n &= DH_n \\
+(I - \gamma \tau L)(w' - w_n) &= \frac{2}{3} \tau (H_n - Gp_n) 
+\end{split}
+
+\end{gather}
+
+
 \newpage
+
