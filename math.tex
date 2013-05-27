@@ -96,7 +96,7 @@ $$
   \vec v (0) = \vec v _0 \label{lin3D_last}
 \end{gather}
 
-Здесь $\vec V = \vec V(x,y) $~--- базовое течение, $ \vec \omega = \nabla \times \vec v $, $ \vec \Omega = \nabla \times \vec V $~--- завихренность малых возмущений и базового течения, соответственно, $\vec v _0$~--- распредиление малых возмущений в начальный момент времени t=0. 
+Здесь $\vec V = \vec V(x,y) $~--- базовое течение, $ \vec \omega = \nabla \times \vec v $, $ \vec \Omega = \nabla \times \vec V $~--- завихренность малых возмущений и базового течения, соответственно, $\vec v_0$~--- распредиление малых возмущений в начальный момент времени t=0. 
 
 Над системой уравнений \ref{lin3D_first}\,--\,\ref{lin3D_last} можно выполнить преобразование Фурье вдоль оси OZ и перейти от переменной z к воновому числу $\alpha$.
 
@@ -105,6 +105,7 @@ $$
  \mathfrak{f}(x_0,y_0,\alpha) = \int_\mathbb{R} f(x_0,y_0,z) e^{-i\alpha z} dz 
 $$
 
+\if 0
 Если считать, что $\vec v = (v_x, v_y, v_z)$, $\vec V = (V_x, V_y)$, $\vec \Omega = (0, 0, \Omega_z)$, то в скалярном виде преобразованную систему можно записать так
 \begin{gather} 
   \label{scalar3D_first}
@@ -120,14 +121,8 @@ $$
  \vec v (0) = \vec v _0 
   \label{scalar3D_last}
 \end{gather}
+\fi
 
-
-
-
-
-
-
-Можно записать и в векторном виде
 Так же, введены следующие обозначения для некоторых линейных операторов.
 $$
   \nabla_\alpha = (\frac{\partial}{\partial x},\frac{\partial}{\partial y},-\alpha I)\text{,\qquad} 
@@ -138,10 +133,56 @@ $$
 \begin{gather} 
   \label{ft3D_first}
   \nabla_\alpha^* \cdot  \mathfrak{\vec v} = 0\\
-  \frac{\partial \mathfrak{\vec v}}{\partial t} = \vec V \times \mathfrak{\vec \omega} + \mathfrak{\vec v} \times \vec \Omega - \nabla_\alpha p - \nu ( \nabla \times \mathfrak{\vec \omega} ), \text{при } \vec x \in \Theta\\
+  \frac{\partial \mathfrak{\vec v}}{\partial t} = \vec V \times \mathfrak{\vec w} + \mathfrak{\vec v} \times \vec \Omega - 
+		\nabla_\alpha \mathfrak{p} - \nu ( \nabla \times \mathfrak{\vec w} ), \text{при } \vec x \in \Theta\\
   \vec v = (0,0,0), \text{при } \vec x \in \partial \Theta\\
   \mathfrak{\vec v} (0) = \vec v _0 \label{ft3D_last}
 \end{gather}
+Здесь $\mathfrak{\vec w} = \nabla_\alpha \mathfrak{\vec v}$ 
 
-Здесь $\mathfrak{\vec \omega} = \nabla_\alpha \mathfrak{\vec v}$ 
-\newpage
+Сопоставим системе \ref{ft3D_first}--\ref{ft3D_last} задачу на собственные значения
+\begin{gather} 
+  \label{s3D_first}
+  \nabla_\alpha^* \cdot  \mathfrak{\vec v} = 0\\
+  - \lambda \mathfrak{\vec v} = \vec V \times \mathfrak{\vec w} + \mathfrak{\vec v} \times \vec \Omega - 
+		\nabla_\alpha \mathfrak{p} - \nu ( \nabla \times \mathfrak{\vec w} ), \text{при } \vec x \in \Theta\\
+  \vec v = (0,0,0), \text{при } \vec x \in \partial \Theta\\
+  \mathfrak{\vec v} (0) = \vec v _0 \label{s3D_last}
+\end{gather}
+
+\subsection*{Решение спектральной задчачи}
+
+Спектральная задача \ref{s3D_first}--\ref{s3D_last} зависит от двух параметров. Это число Рейнольдса Re и волновое чисо $\alpha$. Для каждой пары (Re,$\alpha$) может быть вычислен спектр задачи $\Lambda(\Re,\alpha)$. Вычислив действительную часть каждого собственного значения в спектре и найдя среди них наименьшую найдем декримент затухания d(Ra,$\alpha$)
+\begin{gather}
+ d(\Re,\alpha) = \min_{\lambda \in \Lambda(\Re,\alpha)} \mathfrak{R}(\lambda)
+\end{gather}
+Здесь $\mathfrak{R}(c)$ обозначает реальную часть числа c. Пусть дикременту соответствует множество собственных чисел $\Lambda_d$, вообще говоря, включающее только один элемент.
+\begin{gather}
+ \Lambda_d(\Re,\alpha) = \{ \lambda \in \Lambda(\Re,\alpha) \mid d = \mathfrak{R}(\lambda) \}
+\end{gather}
+Составим еще одно множество $V_d$ из собственных векторов, соотвтствующих собственным значниям из определенного выше множества. Решение эволюционной задачи можно представить, как линейную комбинацию решений виде 
+\begin{gather}
+ V_\lambda e^{-\lambda t}
+\end{gather}
+Здесь $V_\lambda$ - собственный вектор, соответствующий собственному значению $\lambda$. 
+По истечению некоторого времени каждым слагаемым, кроме того, собственное значение которого из
+множества $\Lambda_d$, можно будет принебрачь. Если d больше нуля, решения устойчево, если d 
+меньше нуля, решение неустойчево. Если в множестве $\Lambda_d$ всего одно значение $\lambda_d$, то 
+решение будет асцелировать с частотой $\frac{\mathfrak{I}(\lambda_d)}{2\pi}$, где 
+$\mathfrak{I}(c)$~--- мнимая часть числа c. Значния $d, V_d, \mathfrak{I}(\lambda_d)$ можно найти 
+прямым численным интегрирование задачи \ref{lin3D_first}--\ref{lin3D_last}, не решая задачи на собственные значения.
+
+
+
+Для каждого $\alpha$ можно вычислить критическое число Рейнольдся, обозначаемое $\Re_{crit}$, как наименьшее число Рейнольдся, при котором задача теряет устойчивость к возмущениям с длиной волны $\alpha$.
+\begin{gather}
+ \Re_{crit}(\alpha) = inf\{Re>0 \mid d(\Re,\alpha) < 0\}
+\end{gather}
+Кривую Re$_{crit}(\alpha)$ назавем \textit{кривой нейтральной стабильности}. Она определна на плоскости $(\Re,\alpha)$ при $\alpha > 0$. Во всех точках, лежищих ниже кривой,~--- задача устойчива к малым возмущениям. 
+
+В реальном мире, конечно, возмущения развиваются произвольные, что значит, что начальные условия не нуливые при любом волновом числе. \textit{Глобальное критическое число Рейнольдса} $\Re_{crit}^*$, параметр исследуемой формы каверны, вычисляется как глобальный минимум кривой нейтральной устойчивости. Если при некотором числе Рейнольдся хотябы при одном значении волнового числа возмущения наростают, то есть дикримент отрицательный, течение не устойчиво к возмущениям. Если $R^+$~--- множество положительных рациональных чисел, то
+\begin{gather}
+ \Re_{crit}^* = \min_{\alpha \in R^+}(\Re_{crit}(\alpha))
+\end{gather}
+
+
