@@ -1,15 +1,14 @@
-\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{article}
+\documentclass{scrartcl}
  \usepackage[T2A]{fontenc}
  \usepackage[utf8]{inputenc}
- \usepackage[russian]{babel}
+ \usepackage[english,russian]{babel}
  \usepackage{amsmath}
  \usepackage{amssymb}
-% \usepackage[dvips]{graphicx}
  \usepackage{tikz}
  \usepackage{pgfplots}
  \usepackage{comment}
 
-% \graphicspath{{graph/}{historyImg/}}
 
  \DeclareMathOperator{\rot}{rot}
  \DeclareMathOperator{\mdiv}{div}
@@ -17,17 +16,65 @@
  \renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
  \DeclareMathOperator*{\argmax}{argmax}
 
+\if 0
 %opening
  \title{Численное исследование 3-х мерных не изотермических течений несжимаемой жидкости в прямоугольной каверне с подвижной крышкой}
  \author{Владимир Олегович Пиманов}
  \date{2013 год}
+\fi
+
 
 \begin{document}
 %\large
+% \maketitle
 
- \maketitle
+\thispagestyle{empty}
+\begin{center}
+{\bfseries МОСКОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ им.~М.{\,}В.{\,}Ломоносова}\\
+\vspace{2ex}Факультет вычислительной математики и кибернетики \\
+\vspace{2ex}Кафедра вычислительных методов \\
+\end{center}
 
-\begin{abstract}..
+\vfill
+
+\begin{center}
+{\huge {\bfseries Дипломная работа
+
+\vspace*{1cm}
+
+Численное исследование 3-х мерных не изотермических течений несжимаемой жидкости в прямоугольной каверне с подвижной крышкой} \\[25mm]}
+
+\end{center}
+
+\vfill 
+
+\hspace*{7cm} Выполнил:
+
+\hspace*{7cm} Пиманов Владимир Олегович,
+
+\hspace*{7cm} 505 группа
+
+\hspace*{7cm} Научный руководитель:
+
+\hspace*{7cm} д.ф.-м.н. Никитин{\,}Н.{\,}В.
+
+\hspace*{7cm} Рецензент:
+
+\hspace*{7cm} 
+
+\bigskip
+
+\vfill
+
+\begin{center}
+{\bfseries Москва 2013}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Аннотация}
   В дипломной работе исследуется течение вязкой несжимаемой изотермической жидкости в каверне с подвижной крышкой. 
   Жидкость описывется системой уравнений Навье-Стокса. Каверна имеет форму траншеи, бесконечно длинной 
   вдоль одного направления с квадратным поперечным сечением. Постановка граничных условий двумерная. 
@@ -43,11 +90,11 @@
   МГУ им М.В.~Ломоносова "Чебышев". Были определены дикрименты затухания при некоторых числах Рейнольдса и было 
   определено пороговое число Рейнольдса, при котором основное течение теряет устойчивость к малым трехмерным возмущениям. 
   В качестве введения, в дипломную работу включена краткая история гидродинамики.
-\end{abstract}
-\newpage  
 
+\newpage  
+  
   \input{history}
-  \input{introduction}
+%  \input{introduction}
 %  \input{eq_system}
   \input{math}
   \input{method}
